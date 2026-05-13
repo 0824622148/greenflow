@@ -1,0 +1,61 @@
+import { User } from "@/types/user";
+
+export const mockUser: User = {
+  id: "usr-001",
+  name: "Alex Rivera",
+  phone: "+1 (555) 234-5678",
+  email: "alex.rivera@email.com",
+  avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
+  loyaltyPoints: 1240,
+  loyaltyTier: "Gold",
+  pointsToNextTier: 760,
+  nextTier: "Platinum",
+  memberSince: "January 2024",
+  totalOrders: 34,
+  totalSpent: 1847,
+  savedAddresses: [
+    {
+      id: "addr-001",
+      label: "Home",
+      street: "2847 Maple Grove Dr",
+      city: "Portland",
+      state: "OR",
+      zip: "97201",
+      isDefault: true,
+    },
+    {
+      id: "addr-002",
+      label: "Work",
+      street: "1105 SW 6th Ave, Suite 800",
+      city: "Portland",
+      state: "OR",
+      zip: "97204",
+      isDefault: false,
+    },
+    {
+      id: "addr-003",
+      label: "Other",
+      street: "890 NW 23rd Ave",
+      city: "Portland",
+      state: "OR",
+      zip: "97210",
+      isDefault: false,
+    },
+  ],
+  savedPaymentMethods: [
+    {
+      id: "pm-001",
+      type: "card",
+      label: "Visa ending in 4242",
+      last4: "4242",
+      brand: "visa",
+      isDefault: true,
+    },
+    {
+      id: "pm-002",
+      type: "apple-pay",
+      label: "Apple Pay",
+      isDefault: false,
+    },
+  ],
+};

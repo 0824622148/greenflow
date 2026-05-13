@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 60 14% 96%;
+    --card: 160 32% 14%;
+    --card-foreground: 60 14% 96%;
+    --popover: 160 32% 10%;
+    --popover-foreground: 60 14% 96%;
+    --primary: 163 32% 17%;
+    --primary-foreground: 60 14% 96%;
+    --secondary: 150 19% 47%;
+    --secondary-foreground: 60 14% 96%;
+    --muted: 160 20% 16%;
+    --muted-foreground: 150 10% 60%;
+    --accent: 113 27% 67%;
+    --accent-foreground: 160 32% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 14% 96%;
+    --border: 160 20% 20%;
+    --input: 160 20% 16%;
+    --ring: 163 32% 37%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-matte text-soft;
+    font-family: 'Inter', 'SF Pro Display', 'Poppins', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Hide scrollbar on phone frame inner content */
+  .phone-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .phone-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .glass-elevated {
+    @apply bg-white/8 backdrop-blur-lg border border-white/15;
+  }
+
+  .glass-dark {
+    @apply bg-black/30 backdrop-blur-md border border-white/5;
+  }
+
+  .text-gradient-green {
+    background: linear-gradient(135deg, #9FC490, #5F8D6B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #D4AF37, #F0D060);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-white\/8 {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .border-white\/15 {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+}
