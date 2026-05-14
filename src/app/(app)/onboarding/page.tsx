@@ -7,9 +7,9 @@ import { ChevronRight, Zap, Package, Shield } from "lucide-react";
 import { useAppStore } from "@/store/appStore";
 
 const slides = [
-  { id: 0, icon: Zap, title: "Lightning Fast\nDelivery", subtitle: "Get premium cannabis delivered to your door in under 45 minutes. Track your order in real-time.", gradient: "from-[#0D2420] via-[#1a3830] to-[#0a1a15]", accent: "#9FC490" },
-  { id: 1, icon: Package, title: "Premium\nProducts", subtitle: "Curated selection of lab-tested flower, edibles, concentrates, and more from top-tier producers.", gradient: "from-[#1a1500] via-[#2a2000] to-[#0a0800]", accent: "#D4AF37" },
-  { id: 2, icon: Shield, title: "100% Secure\nOrdering", subtitle: "Discreet packaging, encrypted payments, and age-verified delivery by our trusted team.", gradient: "from-[#001520] via-[#001a28] to-[#000f18]", accent: "#7EB8C9" },
+  { id: 0, icon: Zap, title: "Lightning Fast\nDelivery", subtitle: "Get premium cannabis delivered to your door in under 45 minutes. Track your order in real-time.", bg: "/images/splash-lightning-fast.png", accent: "#9FC490" },
+  { id: 1, icon: Package, title: "Premium\nProducts", subtitle: "Curated selection of lab-tested flower, edibles, concentrates, and more from top-tier producers.", bg: "/images/splash-premium-products.png", accent: "#D4AF37" },
+  { id: 2, icon: Shield, title: "100% Secure\nOrdering", subtitle: "Discreet packaging, encrypted payments, and age-verified delivery by our trusted team.", bg: "/images/splash-secure.png", accent: "#7EB8C9" },
 ];
 
 export default function OnboardingScreen() {
@@ -28,9 +28,11 @@ export default function OnboardingScreen() {
   return (
     <div className="relative w-full min-h-screen flex flex-col overflow-hidden">
       <AnimatePresence mode="wait">
-        <motion.div key={`bg-${current}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}
-          className={`absolute inset-0 bg-gradient-to-br ${slide.gradient}`} />
+        <motion.div key={`bg-${current}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${slide.bg})` }} />
       </AnimatePresence>
+      <div className="absolute inset-0 bg-black/55" />
 
       <div className="relative z-10 flex justify-end p-4 pt-6">
         <motion.button whileTap={{ scale: 0.9 }} onClick={() => { completeOnboarding(); router.push("/auth"); }} className="text-white/40 text-sm font-medium px-3 py-1">
