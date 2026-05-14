@@ -9,9 +9,17 @@ import GlassCard from "@/components/common/GlassCard";
 import StarRating from "@/components/common/StarRating";
 import THCBadge from "@/components/common/THCBadge";
 import { products, getFeaturedProducts } from "@/data/products";
-import { categories } from "@/data/categories";
 import { staggerContainer, cardReveal } from "@/lib/animations";
 import { formatPrice } from "@/lib/utils";
+
+const categoryCards = [
+  { id: "Flower",       label: "Flower",       tag: "Premium Selection", subtitle: "50+ strains in stock",       bg: "/images/products/og-kush.png",                accent: "#9FC490" },
+  { id: "Edibles",      label: "Edibles",      tag: "Lab Tested",        subtitle: "Gummies, chocolates & more", bg: "/images/products/midnight-berry-gummies.png", accent: "#D4AF37" },
+  { id: "Vapes",        label: "Vapes",        tag: "Top Shelf",         subtitle: "Distillate & live resin",    bg: "/images/products/pineapple-express.png",       accent: "#7EB8C9" },
+  { id: "Concentrates", label: "Concentrates", tag: "Just Dropped",      subtitle: "Live resin & rosin",         bg: "/images/banner-new-arrivals.png",              accent: "#D4AF37" },
+  { id: "Pre-Rolls",    label: "Pre-Rolls",    tag: "Ready to Light",    subtitle: "Infused & classic",          bg: "/images/products/purple-haze.png",             accent: "#E07B6A" },
+  { id: "Tinctures",    label: "Tinctures",    tag: "Wellness",          subtitle: "Full spectrum CBD",          bg: "/images/banner-free-delivery.png",             accent: "#9B8FD4" },
+];
 
 const banners = [
   { id: 0, title: "25% OFF", subtitle: "All Flower Today", tag: "Daily Deal", bg: "/images/banner-daily-deal.png", accent: "#9FC490" },
@@ -21,19 +29,15 @@ const banners = [
 
 export default function HomeScreen() {
   const [activeBanner, setActiveBanner] = useState(0);
-  const [activeCategory, setActiveCategory] = useState("All");
   const router = useRouter();
   const featured = getFeaturedProducts();
   const onSale = products.filter((p) => p.isOnSale);
+  const displayProducts = products.slice(0, 8);
 
   useEffect(() => {
     const t = setInterval(() => setActiveBanner((b) => (b + 1) % banners.length), 4000);
     return () => clearInterval(t);
   }, []);
-
-  const displayProducts = activeCategory === "All"
-    ? products.slice(0, 8)
-    : products.filter((p) => p.category === activeCategory).slice(0, 8);
 
   return (
     <div className="w-full min-h-screen bg-app-gradient">
@@ -131,31 +135,28 @@ export default function HomeScreen() {
         {/* Categories */}
         <div className="mb-6">
           <h2 className="text-soft font-semibold text-base mb-3">Categories</h2>
-          <div className="flex gap-2.5 overflow-x-auto phone-scroll pb-1">
-            <motion.button
-              whileTap={{ scale: 0.92 }}
-              onClick={() => setActiveCategory("All")}
-              className={`flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all ${
-                activeCategory === "All" ? "bg-accent text-forest shadow-green" : "bg-white/5 text-white/50 border border-white/10"
-              }`}
-            >
-              All
-            </motion.button>
-            {categories.map((cat) => (
-              <motion.button
+          <div className="grid grid-cols-2 gap-3">
+            {categoryCards.map((cat) => (
+              <motion.div
                 key={cat.id}
-                whileTap={{ scale: 0.92 }}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`flex-shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all border`}
-                style={
-                  activeCategory === cat.id
-                    ? { background: cat.color, borderColor: cat.color, color: "#0D2420" }
-                    : { background: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.5)" }
-                }
+                whileTap={{ scale: 0.97 }}
+                whileHover={{ y: -2 }}
+                onClick={() => router.push("/products")}
+                className="relative h-36 rounded-2xl overflow-hidden cursor-pointer"
               >
-                <span>{cat.emoji}</span>
-                {cat.label}
-              </motion.button>
+                <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${cat.bg})` }} />
+                <div className="absolute inset-0 bg-black/50" />
+                <div className="relative z-10 flex flex-col justify-end p-3.5 h-full">
+                  <span
+                    className="text-[9px] font-bold px-1.5 py-0.5 rounded-full mb-1.5 w-fit"
+                    style={{ background: `${cat.accent}25`, color: cat.accent, border: `1px solid ${cat.accent}40` }}
+                  >
+                    {cat.tag}
+                  </span>
+                  <h3 className="text-white font-black text-lg leading-tight">{cat.label}</h3>
+                  <p className="text-white/50 text-[11px] mt-0.5">{cat.subtitle}</p>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -263,9 +264,7 @@ export default function HomeScreen() {
         {/* Product Grid */}
         <div className="mb-6">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-soft font-semibold text-base">
-              {activeCategory === "All" ? "Recommended" : activeCategory}
-            </h2>
+            <h2 className="text-soft font-semibold text-base">Recommended</h2>
             <button onClick={() => router.push("/products")} className="text-accent text-xs font-medium flex items-center gap-0.5">
               See all <ChevronRight className="w-3 h-3" />
             </button>
