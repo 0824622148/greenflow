@@ -152,10 +152,10 @@ export default function HomeScreen() {
                 whileTap={{ scale: 0.97 }}
                 whileHover={{ y: -2 }}
                 onClick={() => router.push("/products")}
-                className={`relative ${cat.h} ${cat.span} rounded-2xl overflow-hidden cursor-pointer`}
+                className={`relative ${cat.h} ${cat.span} rounded-2xl overflow-hidden cursor-pointer border border-white/15`}
               >
                 <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${cat.bg})` }} />
-                <div className="absolute inset-0 bg-black/48" />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%)" }} />
                 <div className="relative z-10 flex flex-col justify-end p-3 h-full">
                   <span
                     className="text-[9px] font-bold px-1.5 py-0.5 rounded-full mb-1.5 w-fit"
