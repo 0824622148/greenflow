@@ -16,9 +16,9 @@ const categoryCards = [
   { id: "Flower",       label: "Flower",       tag: "Premium Selection", subtitle: "50+ strains in stock",       bg: "/images/products/og-kush.png",                accent: "#9FC490" },
   { id: "Edibles",      label: "Edibles",      tag: "Lab Tested",        subtitle: "Gummies, chocolates & more", bg: "/images/products/midnight-berry-gummies.png", accent: "#D4AF37" },
   { id: "Vapes",        label: "Vapes",        tag: "Top Shelf",         subtitle: "Distillate & live resin",    bg: "/images/products/pineapple-express.png",       accent: "#7EB8C9" },
-  { id: "Concentrates", label: "Concentrates", tag: "Just Dropped",      subtitle: "Live resin & rosin",         bg: "/images/banner-new-arrivals.png",              accent: "#D4AF37" },
-  { id: "Pre-Rolls",    label: "Pre-Rolls",    tag: "Ready to Light",    subtitle: "Infused & classic",          bg: "/images/products/purple-haze.png",             accent: "#E07B6A" },
-  { id: "Tinctures",    label: "Tinctures",    tag: "Wellness",          subtitle: "Full spectrum CBD",          bg: "/images/banner-free-delivery.png",             accent: "#9B8FD4" },
+  { id: "Concentrates", label: "Concentrates", tag: "Just Dropped",      subtitle: "Live resin & rosin",         bg: "/images/products/live-resin-wedding-cake.png", accent: "#D4AF37" },
+  { id: "Pre-Rolls",    label: "Pre-Rolls",    tag: "Ready to Light",    subtitle: "Infused & classic",          bg: "/images/products/infused-pre-roll-pack.png",   accent: "#E07B6A" },
+  { id: "Tinctures",    label: "Tinctures",    tag: "Wellness",          subtitle: "Full spectrum CBD",          bg: "/images/products/full-spectrum-cbd-thc.png",   accent: "#9B8FD4" },
 ];
 
 const banners = [
