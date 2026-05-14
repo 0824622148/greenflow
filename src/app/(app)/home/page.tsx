@@ -14,9 +14,9 @@ import { staggerContainer, cardReveal } from "@/lib/animations";
 import { formatPrice } from "@/lib/utils";
 
 const banners = [
-  { id: 0, title: "25% OFF", subtitle: "All Flower Today", tag: "Daily Deal", gradient: "from-[#1E3A34] to-[#2A4F47]", accent: "#9FC490" },
-  { id: 1, title: "NEW ARRIVALS", subtitle: "Live Resin Collection", tag: "Just Dropped", gradient: "from-[#2a1a00] to-[#3d2600]", accent: "#D4AF37" },
-  { id: 2, title: "FREE DELIVERY", subtitle: "On Orders Over $75", tag: "Limited Time", gradient: "from-[#001520] to-[#001a2e]", accent: "#7EB8C9" },
+  { id: 0, title: "25% OFF", subtitle: "All Flower Today", tag: "Daily Deal", bg: "/images/banner-daily-deal.png", accent: "#9FC490" },
+  { id: 1, title: "NEW ARRIVALS", subtitle: "Live Resin Collection", tag: "Just Dropped", bg: "/images/banner-new-arrivals.png", accent: "#D4AF37" },
+  { id: 2, title: "FREE DELIVERY", subtitle: "On Orders Over $75", tag: "Limited Time", bg: "/images/banner-free-delivery.png", accent: "#7EB8C9" },
 ];
 
 export default function HomeScreen() {
@@ -87,9 +87,11 @@ export default function HomeScreen() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -30 }}
                     transition={{ duration: 0.4 }}
-                    className={`absolute inset-0 bg-gradient-to-r ${banner.gradient} flex items-center px-6 md:px-10`}
+                    className="absolute inset-0 flex items-center px-6 md:px-10"
+                    style={{ backgroundImage: `url(${banner.bg})`, backgroundSize: "cover", backgroundPosition: "center" }}
                   >
-                    <div className="flex-1">
+                    <div className="absolute inset-0 bg-black/45" />
+                    <div className="flex-1 relative z-10">
                       <span
                         className="text-[10px] md:text-xs font-bold px-2 py-0.5 rounded-full mb-2 inline-block"
                         style={{ background: `${banner.accent}25`, color: banner.accent, border: `1px solid ${banner.accent}40` }}
@@ -104,7 +106,7 @@ export default function HomeScreen() {
                     <motion.button
                       whileTap={{ scale: 0.9 }}
                       onClick={() => router.push("/products")}
-                      className="h-10 px-5 rounded-full text-sm font-semibold"
+                      className="relative z-10 h-10 px-5 rounded-full text-sm font-semibold flex-shrink-0"
                       style={{ background: banner.accent, color: "#0D2420" }}
                     >
                       Shop Now
@@ -113,7 +115,7 @@ export default function HomeScreen() {
                 ) : null
               )}
             </AnimatePresence>
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
               {banners.map((_, i) => (
                 <button
                   key={i}
