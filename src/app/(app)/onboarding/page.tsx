@@ -32,7 +32,7 @@ export default function OnboardingScreen() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${slide.bg})` }} />
       </AnimatePresence>
-      <div className="absolute inset-0 bg-black/55" />
+      <div className="absolute inset-0 bg-black/30" />
 
       <div className="relative z-10 flex justify-end p-4 pt-6">
         <motion.button whileTap={{ scale: 0.9 }} onClick={() => { completeOnboarding(); router.push("/auth"); }} className="text-white/40 text-sm font-medium px-3 py-1">
