@@ -135,26 +135,36 @@ export default function HomeScreen() {
         {/* Categories */}
         <div className="mb-6">
           <h2 className="text-soft font-semibold text-base mb-3">Categories</h2>
-          <div className="grid grid-cols-2 gap-3">
-            {categoryCards.map((cat) => (
+          <div className="grid grid-cols-3 gap-2.5">
+            {/* Row 1: large left + tall right */}
+            {[
+              { ...categoryCards[0], span: "col-span-2", h: "h-52" },
+              { ...categoryCards[1], span: "col-span-1", h: "h-52" },
+              /* Row 2: small left + wide right */
+              { ...categoryCards[2], span: "col-span-1", h: "h-36" },
+              { ...categoryCards[3], span: "col-span-2", h: "h-36" },
+              /* Row 3: wide left + small right */
+              { ...categoryCards[4], span: "col-span-2", h: "h-44" },
+              { ...categoryCards[5], span: "col-span-1", h: "h-44" },
+            ].map((cat) => (
               <motion.div
                 key={cat.id}
                 whileTap={{ scale: 0.97 }}
                 whileHover={{ y: -2 }}
                 onClick={() => router.push("/products")}
-                className="relative h-36 rounded-2xl overflow-hidden cursor-pointer"
+                className={`relative ${cat.h} ${cat.span} rounded-2xl overflow-hidden cursor-pointer`}
               >
                 <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${cat.bg})` }} />
-                <div className="absolute inset-0 bg-black/50" />
-                <div className="relative z-10 flex flex-col justify-end p-3.5 h-full">
+                <div className="absolute inset-0 bg-black/48" />
+                <div className="relative z-10 flex flex-col justify-end p-3 h-full">
                   <span
                     className="text-[9px] font-bold px-1.5 py-0.5 rounded-full mb-1.5 w-fit"
                     style={{ background: `${cat.accent}25`, color: cat.accent, border: `1px solid ${cat.accent}40` }}
                   >
                     {cat.tag}
                   </span>
-                  <h3 className="text-white font-black text-lg leading-tight">{cat.label}</h3>
-                  <p className="text-white/50 text-[11px] mt-0.5">{cat.subtitle}</p>
+                  <h3 className="text-white font-black text-base leading-tight">{cat.label}</h3>
+                  <p className="text-white/50 text-[10px] mt-0.5">{cat.subtitle}</p>
                 </div>
               </motion.div>
             ))}
