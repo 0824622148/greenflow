@@ -3,13 +3,13 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Zap, Package, Shield } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useAppStore } from "@/store/appStore";
 
 const slides = [
-  { id: 0, icon: Zap, title: "Lightning Fast\nDelivery", subtitle: "Get premium cannabis delivered to your door in under 45 minutes. Track your order in real-time.", bg: "/images/splash-lightning-fast.png", accent: "#9FC490" },
-  { id: 1, icon: Package, title: "Premium\nProducts", subtitle: "Curated selection of lab-tested flower, edibles, concentrates, and more from top-tier producers.", bg: "/images/splash-premium-products.png", accent: "#D4AF37" },
-  { id: 2, icon: Shield, title: "100% Secure\nOrdering", subtitle: "Discreet packaging, encrypted payments, and age-verified delivery by our trusted team.", bg: "/images/splash-secure.png", accent: "#7EB8C9" },
+  { id: 0, title: "Lightning Fast\nDelivery", subtitle: "Get premium cannabis delivered to your door in under 45 minutes. Track your order in real-time.", bg: "/images/splash-lightning-fast.png", accent: "#9FC490" },
+  { id: 1, title: "Premium\nProducts", subtitle: "Curated selection of lab-tested flower, edibles, concentrates, and more from top-tier producers.", bg: "/images/splash-premium-products.png", accent: "#D4AF37" },
+  { id: 2, title: "100% Secure\nOrdering", subtitle: "Discreet packaging, encrypted payments, and age-verified delivery by our trusted team.", bg: "/images/splash-secure.png", accent: "#7EB8C9" },
 ];
 
 export default function OnboardingScreen() {
@@ -23,7 +23,6 @@ export default function OnboardingScreen() {
   };
 
   const slide = slides[current];
-  const Icon = slide.icon;
 
   return (
     <div className="relative w-full min-h-screen flex flex-col overflow-hidden">
@@ -41,19 +40,7 @@ export default function OnboardingScreen() {
       </div>
 
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 gap-8 max-w-lg mx-auto w-full">
-        <AnimatePresence mode="wait">
-          <motion.div key={`icon-${current}`} initial={{ scale: 0.5, opacity: 0, y: 20 }} animate={{ scale: 1, opacity: 1, y: 0 }} exit={{ scale: 0.5, opacity: 0, y: -20 }}
-            transition={{ type: "spring", stiffness: 200, damping: 20 }} className="relative">
-            <motion.div animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.5, 0.3] }} transition={{ duration: 3, repeat: Infinity }}
-              className="absolute inset-0 rounded-full blur-2xl" style={{ background: `${slide.accent}40` }} />
-            <div className="relative w-36 h-36 rounded-[36px] flex items-center justify-center border"
-              style={{ background: `linear-gradient(135deg, ${slide.accent}20, ${slide.accent}08)`, borderColor: `${slide.accent}30`, boxShadow: `0 20px 60px ${slide.accent}30` }}>
-              <Icon className="w-16 h-16" style={{ color: slide.accent }} strokeWidth={1.5} />
-            </div>
-          </motion.div>
-        </AnimatePresence>
-
-        <AnimatePresence mode="wait">
+<AnimatePresence mode="wait">
           <motion.div key={`text-${current}`} initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }} transition={{ duration: 0.4 }} className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-soft leading-tight whitespace-pre-line mb-4">{slide.title}</h2>
             <p className="text-white/50 text-sm md:text-base leading-relaxed max-w-[320px] mx-auto">{slide.subtitle}</p>
