@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Home, Search, ShoppingCart, User, Leaf, LayoutDashboard } from "lucide-react";
+import { Home, Search, ShoppingCart, User, LayoutDashboard } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCartStore } from "@/store/cartStore";
@@ -23,16 +24,8 @@ export default function DesktopNav() {
       {/* Logo */}
       <div className="p-6 border-b border-white/5">
         <Link href="/home" className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-[14px] bg-forest-gradient flex items-center justify-center shadow-green">
-            <svg width="22" height="22" viewBox="0 0 52 52" fill="none">
-              <path d="M26 6C26 6 12 16 12 28C12 35.732 18.268 42 26 42C33.732 42 40 35.732 40 28C40 16 26 6 26 6Z" fill="url(#deskLg)" />
-              <line x1="26" y1="30" x2="26" y2="44" stroke="rgba(159,196,144,0.7)" strokeWidth="2.5" strokeLinecap="round" />
-              <defs>
-                <linearGradient id="deskLg" x1="26" y1="6" x2="26" y2="42" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#9FC490" /><stop offset="1" stopColor="#5F8D6B" />
-                </linearGradient>
-              </defs>
-            </svg>
+          <div className="w-10 h-10 rounded-[14px] bg-white flex items-center justify-center p-1 shadow-md">
+            <Image src="/images/greenflow-logo.png" alt="GreenFlow" width={36} height={36} className="object-contain" />
           </div>
           <div>
             <h1 className="text-soft font-bold text-base leading-tight">GreenFlow</h1>

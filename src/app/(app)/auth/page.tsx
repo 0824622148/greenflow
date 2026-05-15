@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Phone, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import PillButton from "@/components/common/PillButton";
 import { useAppStore } from "@/store/appStore";
 import { staggerContainer, cardReveal } from "@/lib/animations";
@@ -51,17 +52,8 @@ export default function AuthScreen() {
           className="mb-10"
         >
           <motion.div variants={cardReveal} className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-[12px] bg-forest-gradient flex items-center justify-center">
-              <svg width="22" height="22" viewBox="0 0 52 52" fill="none">
-                <path d="M26 6C26 6 12 16 12 28C12 35.732 18.268 42 26 42C33.732 42 40 35.732 40 28C40 16 26 6 26 6Z" fill="url(#lg2)" />
-                <line x1="26" y1="30" x2="26" y2="44" stroke="rgba(159,196,144,0.7)" strokeWidth="2.5" strokeLinecap="round" />
-                <defs>
-                  <linearGradient id="lg2" x1="26" y1="6" x2="26" y2="42" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#9FC490" />
-                    <stop offset="1" stopColor="#5F8D6B" />
-                  </linearGradient>
-                </defs>
-              </svg>
+            <div className="w-10 h-10 rounded-[12px] bg-white flex items-center justify-center p-1 shadow-md">
+              <Image src="/images/greenflow-logo.png" alt="GreenFlow" width={36} height={36} className="object-contain" />
             </div>
             <span className="text-lg font-bold text-soft">GreenFlow</span>
           </motion.div>

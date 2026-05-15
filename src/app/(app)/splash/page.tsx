@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { logoPulse, fadeUp } from "@/lib/animations";
 
 export default function SplashScreen() {
@@ -24,17 +25,8 @@ export default function SplashScreen() {
 
       <div className="relative z-10 flex flex-col items-center gap-6">
         <motion.div variants={logoPulse} initial="initial" animate="animate" className="relative">
-          <div className="w-24 h-24 rounded-[28px] bg-forest-gradient shadow-[0_20px_60px_rgba(30,58,52,0.7)] flex items-center justify-center border border-sage/30">
-            <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
-              <path d="M26 6C26 6 12 16 12 28C12 35.732 18.268 42 26 42C33.732 42 40 35.732 40 28C40 16 26 6 26 6Z" fill="url(#splashGrad)" />
-              <path d="M26 14C26 14 20 22 26 30C32 22 26 14 26 14Z" fill="rgba(255,255,255,0.25)" />
-              <line x1="26" y1="30" x2="26" y2="44" stroke="rgba(159,196,144,0.7)" strokeWidth="2" strokeLinecap="round" />
-              <defs>
-                <linearGradient id="splashGrad" x1="26" y1="6" x2="26" y2="42" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#9FC490" /><stop offset="1" stopColor="#5F8D6B" />
-                </linearGradient>
-              </defs>
-            </svg>
+          <div className="w-24 h-24 rounded-[28px] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.4)] flex items-center justify-center p-2.5">
+            <Image src="/images/greenflow-logo.png" alt="GreenFlow" width={80} height={80} className="object-contain" />
           </div>
           <motion.div animate={{ scale: [1, 1.4, 1], opacity: [0.6, 0, 0.6] }} transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
             className="absolute inset-0 rounded-[28px] border-2 border-accent/40" />
