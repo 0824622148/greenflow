@@ -24,7 +24,7 @@ export default function DesktopNav() {
       {/* Logo */}
       <div className="p-6 border-b border-white/5">
         <Link href="/home" className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-[14px] bg-white flex items-center justify-center p-1 shadow-md">
+          <div className="w-10 h-10 rounded-[14px] bg-forest-gradient flex items-center justify-center p-1 shadow-green">
             <Image src="/images/greenflow-logo.png" alt="GreenFlow" width={36} height={36} className="object-contain" />
           </div>
           <div>

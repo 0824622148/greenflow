@@ -52,7 +52,7 @@ export default function AuthScreen() {
           className="mb-10"
         >
           <motion.div variants={cardReveal} className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-[12px] bg-white flex items-center justify-center p-1 shadow-md">
+            <div className="w-10 h-10 rounded-[12px] bg-forest-gradient flex items-center justify-center p-1">
               <Image src="/images/greenflow-logo.png" alt="GreenFlow" width={36} height={36} className="object-contain" />
             </div>
             <span className="text-lg font-bold text-soft">GreenFlow</span>

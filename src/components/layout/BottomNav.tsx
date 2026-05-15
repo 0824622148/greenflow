@@ -35,7 +35,7 @@ export default function BottomNav() {
               <Link key={item.href} href="/home" className="relative -mt-6">
                 <motion.div
                   whileTap={{ scale: 0.9 }}
-                  className="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-[0_8px_24px_rgba(0,0,0,0.3)] p-1.5"
+                  className="w-14 h-14 rounded-full bg-forest-gradient flex items-center justify-center shadow-[0_8px_24px_rgba(30,58,52,0.6)] border border-sage/30 p-1.5"
                 >
                   <Image src="/images/greenflow-logo.png" alt="GreenFlow" width={36} height={36} className="object-contain" />
                 </motion.div>

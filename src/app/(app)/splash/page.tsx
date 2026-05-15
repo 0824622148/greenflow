@@ -25,7 +25,7 @@ export default function SplashScreen() {
 
       <div className="relative z-10 flex flex-col items-center gap-6">
         <motion.div variants={logoPulse} initial="initial" animate="animate" className="relative">
-          <div className="w-24 h-24 rounded-[28px] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.4)] flex items-center justify-center p-2.5">
+          <div className="w-24 h-24 rounded-[28px] bg-forest-gradient shadow-[0_20px_60px_rgba(30,58,52,0.7)] flex items-center justify-center p-2">
             <Image src="/images/greenflow-logo.png" alt="GreenFlow" width={80} height={80} className="object-contain" />
           </div>
           <motion.div animate={{ scale: [1, 1.4, 1], opacity: [0.6, 0, 0.6] }} transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
