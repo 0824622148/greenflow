@@ -45,8 +45,8 @@ export default function HomeScreen() {
         {/* Header */}
         <div className="pt-4 pb-4 flex items-center justify-between">
           <div>
-            <p className="text-white/40 text-xs font-medium">Good evening,</p>
-            <h1 className="text-soft text-xl font-bold">Alex Rivera 👋</h1>
+            <p className="text-white/40 text-xs font-medium">Welcome back,</p>
+            <h1 className="text-soft text-xl font-bold">What are you feeling today?</h1>
           </div>
           <motion.button
             whileTap={{ scale: 0.85 }}
