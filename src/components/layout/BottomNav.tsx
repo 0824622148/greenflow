@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { href: "/home", icon: Home, label: "Home" },
   { href: "/products", icon: Search, label: "Shop" },
-  { href: "/", icon: Leaf, label: "GreenFlow", isCenter: true },
+  { href: "/", icon: Home, label: "GreenFlow", isCenter: true },
   { href: "/cart", icon: ShoppingCart, label: "Cart" },
   { href: "/profile", icon: User, label: "Profile" },
 ];
