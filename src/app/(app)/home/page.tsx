@@ -155,7 +155,7 @@ export default function HomeScreen() {
                 className={`relative ${cat.h} ${cat.span} rounded-2xl overflow-hidden cursor-pointer border border-white/15`}
               >
                 <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${cat.bg})` }} />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%)" }} />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 0%, rgba(13,36,32,0.15) 40%, rgba(13,36,32,0.95) 100%)" }} />
                 <div className="relative z-10 flex flex-col justify-end p-3 h-full">
                   <span
                     className="text-[9px] font-bold px-1.5 py-0.5 rounded-full mb-1.5 w-fit"
